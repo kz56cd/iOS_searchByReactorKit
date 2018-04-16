@@ -32,7 +32,7 @@ final class GitHubSearchViewReactor: Reactor {
     
     let initialState = State()
     
-    func mutate(action: GitHubSearchViewReactor.Action) -> Observable<GitHubSearchViewReactor.Mutation> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .updateQuery(query):
             return Observable.concat([
@@ -56,7 +56,11 @@ final class GitHubSearchViewReactor: Reactor {
         }
     }
     
-    func reduce(state: GitHubSearchViewReactor.State, mutation: GitHubSearchViewReactor.Mutation) -> GitHubSearchViewReactor.State {
+    func reduce(
+        state: State,
+        mutation: Mutation
+        ) -> State {
+        
         switch mutation {
         case let .setQuery(query):
             var newState = state
@@ -81,12 +85,23 @@ final class GitHubSearchViewReactor: Reactor {
 }
 
 extension GitHubSearchViewReactor {
-    fileprivate func url(for query: String?, page: Int) -> URL? {
+    fileprivate func url(
+        for query: String?,
+        page: Int
+        ) -> URL? {
+        
         guard let query = query, !query.isEmpty else { return nil }
         return URL(string: "https://api.github.com/search/repositories?q=\(query)&page=\(page)")
     }
     
-    fileprivate func search(query: String?, page: Int) -> Observable<(repos: [String], nextPage: Int?)> {
+    fileprivate func search(
+        query: String?,
+        page: Int
+        ) -> Observable<(
+        repos: [String],
+        nextPage: Int?
+        )> {
+        
         let emptyResult: ([String], Int?) = ([], nil)
         guard let url = self.url(for: query, page: page) else { return .just(emptyResult) }
         return URLSession.shared.rx.json(url: url)
@@ -98,7 +113,8 @@ extension GitHubSearchViewReactor {
                 return (repos, nextPage)
             }
             .do(onError: { error in
-                if case let .some(.httpRequestFailed(response, _)) = error as? RxCocoaURLError, response.statusCode == 403 {
+                if case let .some(.httpRequestFailed(response, _)) = error as? RxCocoaURLError,
+                    response.statusCode == 403 {
                     print("⚠️ GitHub API rate limit exceeded. Wait for 60 seconds and try again.")
                 }
             })
