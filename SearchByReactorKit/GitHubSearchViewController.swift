@@ -63,7 +63,7 @@ extension GitHubSearchViewController {
         // State
         reactor.state
             .map { $0.repos }
-            .bind(to: tableView.rx.items(cellIdentifier: "cell")) { indexPath, repo, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { indexPath, repo, cell in
                 cell.textLabel?.text = repo
             }
             .disposed(by: disposeBag)
