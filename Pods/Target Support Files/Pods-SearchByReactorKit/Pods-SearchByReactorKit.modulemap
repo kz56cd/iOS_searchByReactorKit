@@ -1,0 +1,6 @@
+framework module Pods_SearchByReactorKit {
+  umbrella header "Pods-SearchByReactorKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
