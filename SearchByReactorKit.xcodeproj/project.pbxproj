@@ -17,6 +17,7 @@
 		EA27C15520847AB500EBB268 /* GitHubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27C15420847AB500EBB268 /* GitHubSearchViewController.swift */; };
 		EA27C15720847AF300EBB268 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = EA27C15620847AF300EBB268 /* PodFile */; };
 		EA27C15920847B2000EBB268 /* GitHubSearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27C15820847B2000EBB268 /* GitHubSearchViewReactor.swift */; };
+		EA27C15B20856EBD00EBB268 /* UINavigationItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27C15A20856EBD00EBB268 /* UINavigationItem+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		EA27C15420847AB500EBB268 /* GitHubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewController.swift; sourceTree = "<group>"; };
 		EA27C15620847AF300EBB268 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		EA27C15820847B2000EBB268 /* GitHubSearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewReactor.swift; sourceTree = "<group>"; };
+		EA27C15A20856EBD00EBB268 /* UINavigationItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				EA27C126208479D800EBB268 /* AppDelegate.swift */,
 				EA27C15420847AB500EBB268 /* GitHubSearchViewController.swift */,
 				EA27C15820847B2000EBB268 /* GitHubSearchViewReactor.swift */,
+				EA27C15A20856EBD00EBB268 /* UINavigationItem+.swift */,
 				EA27C12A208479D800EBB268 /* Main.storyboard */,
 				EA27C12D208479D900EBB268 /* Assets.xcassets */,
 				EA27C12F208479D900EBB268 /* LaunchScreen.storyboard */,
@@ -334,6 +337,7 @@
 			files = (
 				EA27C15520847AB500EBB268 /* GitHubSearchViewController.swift in Sources */,
 				EA27C127208479D800EBB268 /* AppDelegate.swift in Sources */,
+				EA27C15B20856EBD00EBB268 /* UINavigationItem+.swift in Sources */,
 				EA27C15920847B2000EBB268 /* GitHubSearchViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
