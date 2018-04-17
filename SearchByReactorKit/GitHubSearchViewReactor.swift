@@ -39,7 +39,7 @@ final class GitHubSearchViewReactor: Reactor {
                 Observable.just(Mutation.setQuery(query)),
                 self.search(query: query, page: 1)
                     .takeUntil(self.action.filter(isUpdateQueryAction))
-                    .map { Mutation.setRepos($0, nextPage: $1) }
+                    .map { Mutation.setRepos($0, nextPage: $1) },
             ])
         case .loadNextPage:
             guard !self.currentState.isLoadingNextPage,

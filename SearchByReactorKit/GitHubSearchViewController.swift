@@ -80,5 +80,15 @@ extension GitHubSearchViewController {
                 self.searchController.present(viewController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
+        
+        // NOTE: ロード中 表記
+        reactor.state
+            .map { $0.isLoadingNextPage }
+            .distinctUntilChanged()
+            .debug()
+            .map { $0 ? "Loading next page..." : nil }
+            .bind(to: navigationItem.rx.prompt)
+            .disposed(by: disposeBag)
     }
 }
+
